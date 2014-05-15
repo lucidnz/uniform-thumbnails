@@ -1,0 +1,10 @@
+{
+  "name": "BSImagify",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
