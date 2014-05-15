@@ -1,8 +1,10 @@
+/*global module:false*/
 module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    // Task configuration.
     jshint: {
       options: {
         curly: true,
@@ -30,7 +32,7 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       plugin: {
-        src: ['src/js/*.js']
+        src: ['src/*.js']
       }
     },
     uglify: {
@@ -39,7 +41,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'build/jquery.bs_imagify.min.js': 'src/js/jquery.bs_imagify.js'
+          'dist/jquery.bs_imagify.min.js': 'src/jquery.bs_imagify.js'
         }
       }
     },
@@ -49,11 +51,11 @@ module.exports = function(grunt) {
         tasks: ['jshint:gruntfile']
       },
       jshint: {
-        files: '<%= jshint.assets.src %>',
+        files: '<%= jshint.plugin.src %>',
         tasks: ['jshint:plugin']
       },
       uglify: {
-        files: 'src/js/*.js',
+        files: 'src/*.js',
         tasks: ['uglify']
       }
     }
