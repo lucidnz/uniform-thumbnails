@@ -24,7 +24,7 @@ Select the element that wraps your thumbnail image and call the `uniform_thumbna
 
 ### Fitting
 
-You can specify the fit option with either `crop` or `scale`.
+You can specify the fit option with either `crop` or `scale`.  
 The default is `crop`.
 
     $('.image-wrapper').uniform_thumbnails({
@@ -33,15 +33,15 @@ The default is `crop`.
     
 ### Format & Ratio
 
-You can set either the format or ratio.
-**Format** options are `square`, `landscape`, `portrait` or `ratio`.
+You can set either the format or ratio.  
+**Format** options are `square`, `landscape`, `portrait` or `ratio`.  
 Default is `ratio` which tells the plugin to use the ratio option.
 
     $('.image-wrapper').uniform_thumbnails({
       format: 'square'
     });
 
-For a more advanced format you can use **ratio**. Options are a string layed out like: `[width]:[height]` e.g. `'1:1'`, `'4:6'` or `'5:2'`.
+For a more advanced format you can use **ratio**. Options are a string layed out like: `[width]:[height]` e.g. `'1:1'`, `'4:6'` or `'5:2'`.  
 The default is `'1:1'`.
 
     $('.image-wrapper').uniform_thumbnails({
@@ -50,12 +50,16 @@ The default is `'1:1'`.
     
 ### Alignment
 
-This sets the vertical alignment of the image inside the wrapper element. Images will always be centered horizontally.
+This sets the vertical alignment of the image inside the wrapper element. Images will always be centered horizontally.  
 Options are `top`, `middle` and `bottom`. Default is `middle`.
 
     $('.image-wrapper').uniform_thumbnails({
       align: 'bottom'
     });
+    
+## Demo
+
+There is an `index.html` in the root folder. Feel free to play around with it to see how things work.
     
 ## Bugs and Issues
 
