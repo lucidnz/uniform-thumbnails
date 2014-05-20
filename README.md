@@ -2,7 +2,7 @@
 
 A jQuery plugin that will crop, scale and align your thumbnail images. Usefull for when you have rows of things like product thumbs but can't control the image processing before they are uploaded.
 
-*Note:* It will not scale images any bigger than they can go.
+**Note:** It will not scale images any bigger than they can go.
 
 ## Installation
 
@@ -24,7 +24,8 @@ Select the element that wraps your thumbnail image and call the `uniform_thumbna
 
 ### Fitting
 
-You can specify the fit option with either `crop` or `scale`. The default is `crop`.
+You can specify the fit option with either `crop` or `scale`.
+The default is `crop`.
 
     $('.image-wrapper').uniform_thumbnails({
       fit: 'scale'
@@ -33,13 +34,15 @@ You can specify the fit option with either `crop` or `scale`. The default is `cr
 ### Format & Ratio
 
 You can set either the format or ratio.
-*Format* options are `square`, `landscape`, `portrait` or `ratio`. Default is `ratio` which tells the plugin to use the ratio option.
+**Format** options are `square`, `landscape`, `portrait` or `ratio`.
+Default is `ratio` which tells the plugin to use the ratio option.
 
     $('.image-wrapper').uniform_thumbnails({
       format: 'square'
     });
 
-For a more advanced format you can use *ratio*. Options are a string layed out like: `[width]:[height]` e.g. `'1:1'`, `'4:6'` or `'5:2'`. The default is `'1:1'`.
+For a more advanced format you can use **ratio**. Options are a string layed out like: `[width]:[height]` e.g. `'1:1'`, `'4:6'` or `'5:2'`.
+The default is `'1:1'`.
 
     $('.image-wrapper').uniform_thumbnails({
       ratio: '6:4'
@@ -56,7 +59,7 @@ Options are `top`, `middle` and `bottom`. Default is `middle`.
     
 ## Bugs and Issues
 
-Please submit and [issue](https://github.com/luciddesign/uniform-thumbnails/issues) or [pull request](https://github.com/luciddesign/uniform-thumbnails/pulls).
+Please submit an [issue](https://github.com/luciddesign/uniform-thumbnails/issues) or [pull request](https://github.com/luciddesign/uniform-thumbnails/pulls).
 
 ## Thanks
 
