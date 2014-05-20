@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/jquery.bs_imagify.min.js': 'src/jquery.bs_imagify.js'
+          'dist/jquery.uniform_thumbnails.min.js': ['bower_components/imagesloaded/imagesloaded.pkgd.js', 'src/jquery.uniform_thumbnails.js']
         }
       }
     },

@@ -4,19 +4,19 @@
    * Main
    ***/
    
-  var BSImagify = function($ele, settings){
+  var UniformThumbs = function($ele, settings){
     this.$ele = $ele;
     this.settings = settings;
     
-    this.formater = new BSImagifyFormater(this.$ele, this.settings);
-    this.fitter = new BSImagifyFitter(this.$ele, this.settings);
+    this.formater = new UniformThumbsFormater(this.$ele, this.settings);
+    this.fitter = new UniformThumbsFitter(this.$ele, this.settings);
     this.imageLoaded = imagesLoaded(this.$ele);
     
     this.addEventHandlers();
     this.hideImages();
   };
   
-  BSImagify.prototype.addEventHandlers = function(){
+  UniformThumbs.prototype.addEventHandlers = function(){
     var self = this;
     
     this.imageLoaded.on('done', function(){
@@ -38,11 +38,11 @@
     }, 250);
   };
   
-  BSImagify.prototype.hideImages = function(){
+  UniformThumbs.prototype.hideImages = function(){
     this.$ele.css({opacity: 0});
   };
   
-  BSImagify.prototype.showImages = function(){
+  UniformThumbs.prototype.showImages = function(){
     this.$ele.fadeTo(900, 1);
   };
   
@@ -50,24 +50,24 @@
    * Image formater
    ***/
    
-  var BSImagifyFormater = function($wrapper, settings){
+  var UniformThumbsFormater = function($wrapper, settings){
     this.$wrapper = $wrapper;
     this.settings = settings;
     this.ratio = this.getRatio();
   };
   
-  BSImagifyFormater.prototype.setImageFormat = function(){
+  UniformThumbsFormater.prototype.setImageFormat = function(){
     var widthRatio = this.$wrapper.width() / this.ratio.width;
     var heightRatio = widthRatio * this.ratio.height;
     this.$wrapper.height(heightRatio);
   };
   
-  BSImagifyFormater.prototype.getRatio = function(){
+  UniformThumbsFormater.prototype.getRatio = function(){
     var ratioStr = this._getRatioString();
     return this._getRatioFromString( ratioStr );
   };
   
-  BSImagifyFormater.prototype._getRatioString = function(){
+  UniformThumbsFormater.prototype._getRatioString = function(){
     switch (this.settings.format) {
       case 'square':
         return '1:1';
@@ -80,7 +80,7 @@
     }
   };
   
-  BSImagifyFormater.prototype._getRatioFromString = function(ratioStr){
+  UniformThumbsFormater.prototype._getRatioFromString = function(ratioStr){
     var ratioArr = ratioStr.split(':');
     return {
        width: ratioArr[0],
@@ -92,14 +92,14 @@
    * Image fitter
    ***/
   
-  var BSImagifyFitter = function($wrapper, settings){
+  var UniformThumbsFitter = function($wrapper, settings){
     this.$wrapper = $wrapper;
     this.$image = this.$wrapper.find('img');
     this.settings = settings;
     this._resetImageCSS();
   };
   
-  BSImagifyFitter.prototype.setImageFit = function(){
+  UniformThumbsFitter.prototype.setImageFit = function(){
     switch (this.settings.fit) {
       case 'crop':
         this._cropImage();
@@ -110,7 +110,7 @@
     }
   };
   
-  BSImagifyFitter.prototype._cropImage = function(){
+  UniformThumbsFitter.prototype._cropImage = function(){
     if (this.$image.width() > this.$image.height()) {
       this._fitHorizontal();
     } else {
@@ -119,7 +119,7 @@
     this._alignImage();
   };
   
-  BSImagifyFitter.prototype._scaleImage = function(){
+  UniformThumbsFitter.prototype._scaleImage = function(){
     if (this.$image.width() > this.$image.height()) {
       this._fitVertical();
     } else {
@@ -128,19 +128,19 @@
     this._alignImage();
   };
   
-  BSImagifyFitter.prototype._fitHorizontal = function(){
+  UniformThumbsFitter.prototype._fitHorizontal = function(){
     if (this._getNaturalHeight(this.$image) >= this.$wrapper.height()) {
       this.$image.height(this.$wrapper.height());
     }
   };
   
-  BSImagifyFitter.prototype._fitVertical = function(){
+  UniformThumbsFitter.prototype._fitVertical = function(){
     if (this._getNaturalWidth(this.$image) >= this.$wrapper.width()) {
       this.$image.width(this.$wrapper.width());
     }
   };
   
-  BSImagifyFitter.prototype._alignImage = function(){
+  UniformThumbsFitter.prototype._alignImage = function(){
     var style = {};
     style.marginLeft = (this.$wrapper.width() - this.$image.width()) / 2;
     switch (this.settings.align) {
@@ -156,7 +156,7 @@
     this.$image.css(style);
   };
   
-  BSImagifyFitter.prototype._getNaturalHeight = function($image){
+  UniformThumbsFitter.prototype._getNaturalHeight = function($image){
     if ($image.prop('naturalHeight')) {
       return $image.prop('naturalHeight');
     } else {
@@ -164,7 +164,7 @@
     }
   };
   
-  BSImagifyFitter.prototype._getNaturalWidth = function($image){
+  UniformThumbsFitter.prototype._getNaturalWidth = function($image){
     if ($image.prop('naturalWidth')) {
       return $image.prop('naturalWidth');
     } else {
@@ -172,13 +172,13 @@
     }
   };
   
-  BSImagifyFitter.prototype._getNaturalSize = function($image){
+  UniformThumbsFitter.prototype._getNaturalSize = function($image){
     var img = new Image();
     img.src = $image.prop('src');
     return { width: img.width, height: img.height };
   };
   
-  BSImagifyFitter.prototype._resetImageCSS = function(){
+  UniformThumbsFitter.prototype._resetImageCSS = function(){
     this.$image.css({
       maxWidth: 'none'
     });
@@ -188,18 +188,18 @@
    * jQuery-ify
    ***/
    
-  $.fn.bs_imagify = function( options ) {
+  $.fn.uniform_thumbnails = function( options ) {
     // collect settings
-    var settings = $.extend( {}, $.fn.bs_imagify.defaults, options );
+    var settings = $.extend( {}, $.fn.uniform_thumbnails.defaults, options );
     // build plugin
     return this.each(function(){
       var $ele = $(this);
-      $ele.data('_bs_imagify', new BSImagify($ele, settings));
+      $ele.data('_uniform_thumbnails', new UniformThumbs($ele, settings));
     });
   };
   
   // Default settings
-  $.fn.bs_imagify.defaults = {
+  $.fn.uniform_thumbnails.defaults = {
                fit: 'crop',   // crop|scale
              ratio: '1:1',    // aspect ratio for image container
             format: 'ratio',  // ratio|square|landscape|portrait
