@@ -25,10 +25,17 @@
       self.showImages();
     });
     
-    $(window).resize(function(){
-      self.formater.setImageFormat();
-      self.fitter.setImageFit();
+    var didResize = false;
+    $(window).resize(function() {
+      didResize = true;
     });
+    setInterval(function() {  
+      if(didResize) {
+        didResize = false;
+        self.formater.setImageFormat();
+        self.fitter.setImageFit();
+      }
+    }, 250);
   };
   
   BSImagify.prototype.hideImages = function(){
@@ -109,7 +116,7 @@
     } else {
       this._fitVertical();
     }
-    this._centerImage();
+    this._alignImage();
   };
   
   BSImagifyFitter.prototype._scaleImage = function(){
@@ -122,46 +129,53 @@
   };
   
   BSImagifyFitter.prototype._fitHorizontal = function(){
-    if (this.$image.height() >= this.$wrapper.height()) {
+    if (this._getNaturalHeight(this.$image) >= this.$wrapper.height()) {
       this.$image.height(this.$wrapper.height());
     }
   };
   
   BSImagifyFitter.prototype._fitVertical = function(){
-    if (this.$image.width() >= this.$wrapper.width()) {
+    if (this._getNaturalWidth(this.$image) >= this.$wrapper.width()) {
       this.$image.width(this.$wrapper.width());
     }
   };
   
   BSImagifyFitter.prototype._alignImage = function(){
     var style = {};
-    style.left = (this.$wrapper.width() - this.$image.width()) / 2;
-/*
-    switch (this.settings.fit) {
-      case 'crop':
-        this._cropImage();
+    style.marginLeft = (this.$wrapper.width() - this.$image.width()) / 2;
+    switch (this.settings.align) {
+      case 'top':
         break;
-      case 'scale':
-        this._scaleImage();
+      case 'middle':
+        style.marginTop = (this.$wrapper.height() - this.$image.height()) / 2;
+        break;
+      case 'bottom':
+        style.marginTop = this.$wrapper.height() - this.$image.height();
         break;
     }
-    
-    
-    if(this.settings.align == 'top'){
-      
-    } else if(){
-      
-    } else 
-*/
+    this.$image.css(style);
+  };
   
-/*
-    var top = (this.$wrapper.height() - this.$image.height()) / 2;
-    var left
-    this.$image.css({
-      marginTop: top,
-      marginLeft: left
-    });
-*/
+  BSImagifyFitter.prototype._getNaturalHeight = function($image){
+    if ($image.prop('naturalHeight')) {
+      return $image.prop('naturalHeight');
+    } else {
+      return this._getNaturalSize($image).height;
+    }
+  };
+  
+  BSImagifyFitter.prototype._getNaturalWidth = function($image){
+    if ($image.prop('naturalWidth')) {
+      return $image.prop('naturalWidth');
+    } else {
+      return this._getNaturalSize($image).width;
+    }
+  };
+  
+  BSImagifyFitter.prototype._getNaturalSize = function($image){
+    var img = new Image();
+    img.src = $image.prop('src');
+    return { width: img.width, height: img.height };
   };
   
   BSImagifyFitter.prototype._resetImageCSS = function(){

@@ -26,7 +26,8 @@ module.exports = function(grunt) {
           Image: true,
           $: true,
           jQuery: true,
-          imagesLoaded: true
+          imagesLoaded: true,
+          setInterval: true
         }
       },
       gruntfile: {
