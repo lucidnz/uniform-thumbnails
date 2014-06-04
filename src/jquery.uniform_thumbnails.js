@@ -176,7 +176,7 @@
   };
   
   UniformThumbsFitter.prototype._getNaturalSize = function($image){
-    if ($image.prop('src') !== undefined) {
+    if ($image.prop('src')) {
       var img = new Image();
       img.src = $image.prop('src');
       return { width: img.width, height: img.height };
@@ -199,10 +199,15 @@
     // collect settings
     var settings = $.extend( {}, $.fn.uniform_thumbnails.defaults, options );
     // build plugin
-    return this.each(function(){
+    this.each(function(){
       var $ele = $(this);
       $ele.data('_uniform_thumbnails', new UniformThumbs($ele, settings));
     });
+    
+    // invoke callback outside of loop
+    settings.callback.call();
+    
+    return this;
   };
   
   // Default settings
@@ -212,7 +217,8 @@
             format: 'ratio',  // ratio|square|landscape|portrait
              align: 'middle', // top|middle|bottom
     landscapeRatio: '4:3',    // default ratio for landscape
-     portraitRatio: '3:4'     // default ratio for portrait
+     portraitRatio: '3:4',    // default ratio for portrait
+          callback: function(){} // default callback
   };
 
 }(jQuery));
