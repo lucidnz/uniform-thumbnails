@@ -39,7 +39,10 @@
   };
   
   UniformThumbs.prototype.hideImages = function(){
-    this.$ele.css({opacity: 0});
+    this.$ele.css({
+      opacity: 0,
+      overflow: 'hidden'
+    });
   };
   
   UniformThumbs.prototype.showImages = function(){
@@ -64,7 +67,7 @@
   
   UniformThumbsFormater.prototype.getRatio = function(){
     var ratioStr = this._getRatioString();
-    return this._getRatioFromString( ratioStr );
+    return this._getRatioFromString(ratioStr);
   };
   
   UniformThumbsFormater.prototype._getRatioString = function(){
