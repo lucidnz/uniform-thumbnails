@@ -176,9 +176,13 @@
   };
   
   UniformThumbsFitter.prototype._getNaturalSize = function($image){
-    var img = new Image();
-    img.src = $image.prop('src');
-    return { width: img.width, height: img.height };
+    if ($image.prop('src') !== undefined) {
+      var img = new Image();
+      img.src = $image.prop('src');
+      return { width: img.width, height: img.height };
+    } else {
+      return false;
+    }
   };
   
   UniformThumbsFitter.prototype._resetImageCSS = function(){
