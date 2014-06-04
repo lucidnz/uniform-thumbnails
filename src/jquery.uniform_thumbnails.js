@@ -14,6 +14,7 @@
     
     this.addEventHandlers();
     this.hideImages();
+    
   };
   
   UniformThumbs.prototype.addEventHandlers = function(){
@@ -23,6 +24,7 @@
       self.formater.setImageFormat();
       self.fitter.setImageFit();
       self.showImages();
+      self.$ele.trigger('ut_imageLoaded');
     });
     
     var didResize = false;
@@ -195,19 +197,26 @@
    * jQuery-ify
    ***/
    
+  var thumbnailCompleteCount = 0;
+  var invokeFinalTrigger = function(self){
+    thumbnailCompleteCount++;
+    if (thumbnailCompleteCount === self.length) {
+      $(self).last().trigger('ut_complete');
+    }
+  };
+   
   $.fn.uniform_thumbnails = function( options ) {
     // collect settings
     var settings = $.extend( {}, $.fn.uniform_thumbnails.defaults, options );
     // build plugin
-    this.each(function(){
+    var self = this;
+    return self.each(function(){
       var $ele = $(this);
       $ele.data('_uniform_thumbnails', new UniformThumbs($ele, settings));
+      $ele.on('ut_imageLoaded', function(){
+        invokeFinalTrigger(self);
+      });
     });
-    
-    // invoke callback outside of loop
-    settings.callback.call();
-    
-    return this;
   };
   
   // Default settings
@@ -217,8 +226,7 @@
             format: 'ratio',  // ratio|square|landscape|portrait
              align: 'middle', // top|middle|bottom
     landscapeRatio: '4:3',    // default ratio for landscape
-     portraitRatio: '3:4',    // default ratio for portrait
-          callback: function(){} // default callback
+     portraitRatio: '3:4'     // default ratio for portrait
   };
 
 }(jQuery));
