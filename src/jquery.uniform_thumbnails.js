@@ -14,7 +14,6 @@
     
     this.addEventHandlers();
     this.hideImages();
-    
   };
   
   UniformThumbs.prototype.addEventHandlers = function(){
@@ -101,7 +100,6 @@
     this.$wrapper = $wrapper;
     this.$image = this.$wrapper.find('img');
     this.settings = settings;
-    this._resetImageCSS();
   };
   
   UniformThumbsFitter.prototype.setImageFit = function(){
@@ -185,12 +183,6 @@
     } else {
       return false;
     }
-  };
-  
-  UniformThumbsFitter.prototype._resetImageCSS = function(){
-    this.$image.css({
-      maxWidth: 'none'
-    });
   };
 
   /***

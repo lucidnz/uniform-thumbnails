@@ -48,6 +48,7 @@
     }
     img {
       max-width: 100%;
+      margin: auto;
     }
   </style>
   
@@ -94,7 +95,7 @@
       <div class="thumbnail-wrapper">
         <div class="thumbnail">
           <a class="image-wrapper" href="#">
-            <!-- <img src="http://placehold.it/300x200"> -->
+            <img src="http://placehold.it/300x200">
           </a>
           <div class="caption">
             <h3>Product Title</h3>
@@ -108,7 +109,7 @@
   <script>  
     $('.image-wrapper').uniform_thumbnails({
       //ratio: '4:6',
-      //fit: 'scale',
+      fit: 'scale',
       //align: 'bottom'
     }).on('ut_complete', function(){
       console.log('All done!');
