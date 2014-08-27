@@ -100,7 +100,6 @@
     this.$wrapper = $wrapper;
     this.$image = this.$wrapper.find('img');
     this.settings = settings;
-    this._resetImageCSS();
   };
   
   UniformThumbsFitter.prototype.setImageFit = function(){
@@ -112,6 +111,7 @@
         this._scaleImage();
         break;
     }
+    this._resetImageCSS();
   };
   
   UniformThumbsFitter.prototype._cropImage = function(){
