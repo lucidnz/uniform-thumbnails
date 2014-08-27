@@ -112,6 +112,7 @@
         break;
     }
     this._resetImageCSS();
+    this._alignImage();
   };
   
   UniformThumbsFitter.prototype._cropImage = function(){
@@ -120,7 +121,6 @@
     } else {
       this._fitVertical();
     }
-    this._alignImage();
   };
   
   UniformThumbsFitter.prototype._scaleImage = function(){
@@ -129,7 +129,6 @@
     } else {
       this._fitHorizontal();
     }
-    this._alignImage();
   };
   
   UniformThumbsFitter.prototype._fitHorizontal = function(){
