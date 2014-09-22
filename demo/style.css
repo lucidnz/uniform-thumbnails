@@ -212,6 +212,10 @@ small {
     .container {
       width: 80%; } }
 
+.products {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em; }
+
 .thumbnail-wrapper {
   width: 25%; }
 

@@ -17,6 +17,8 @@
 
 .products {
   @extend %grid;
+  margin-top: $gutter_horizontal;
+  margin-bottom: $gutter_horizontal;
 }
 .thumbnail-wrapper {
   @extend %grid-col;

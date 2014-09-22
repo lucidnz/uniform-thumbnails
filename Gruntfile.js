@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'style.css': 'style.scss'
+          'demo/style.css': 'demo/style.scss'
         }
       }
     },
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         tasks: ['uglify']
       },
       sass: {
-        files: '*.scss',
+        files: 'demo/*.scss',
         tasks: ['sass']
       }
     }
