@@ -1,0 +1,225 @@
+/*
+  Includes:
+  I might make things you don't want, but I'm not going to be a jerk about it.
+  So just say if you don't want them.
+*/
+/*
+  Grids & Gutters:
+*/
+/*
+  Type:
+  
+  Target / Context:
+  Foundtion sets the body font size at 100% which is usually 16px
+  A standard line height of 1.5ems on the body (@16px) is 24px
+*/
+/*
+  Breakpoints:
+  These are only here so things don't break when you don't change them.
+  
+  It's better for everyone if you change these to fit your content, but we both know you won't.
+*/
+/*
+  Colours:
+*/
+/*
+  Inspired by some stuff this guy said:
+  http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
+  but extended to include a few more things
+*/
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  line-height: 1.5em;
+  font-family: sans-serif;
+  color: #444; }
+
+html, body {
+  height: 100%; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl,
+hr,
+th,
+td {
+  padding: 0;
+  margin: 0; }
+
+table {
+  border-collapse: collapse; }
+
+li {
+  display: block; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: .3s; }
+  p a:hover {
+    text-decoration: underline; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0; }
+
+hr {
+  margin: 0.75em 0;
+  border: none;
+  border-bottom: solid 1px #444; }
+
+/* @if $include_type { */
+/*
+  Read the part about line length:
+  http://trentwalton.com/2012/06/19/fluid-type/
+  
+  Also using a "close-enough" vertical rhythm
+*/
+body {
+  color: #444; }
+  @media (min-width: 37.5em) {
+    body {
+      font-size: 1.2em; } }
+  @media (min-width: 93.75em) {
+    body {
+      font-size: 1.4em; } }
+
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl {
+  margin-bottom: 1.5em; }
+
+h1 {
+  font-size: 3.927em;
+  line-height: 1.14591;
+  margin-bottom: 0.38197em; }
+
+h2 {
+  font-size: 2.618em;
+  line-height: 1.14591;
+  margin-bottom: 0.57296em; }
+
+h3 {
+  font-size: 2.427em;
+  line-height: 1.23609;
+  margin-bottom: 0.61805em; }
+
+h4 {
+  font-size: 1.618em;
+  line-height: 1.85414;
+  margin-bottom: 0.92707em; }
+
+h5 {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em; }
+
+h6 {
+  font-size: 0.618em;
+  line-height: 2.42718;
+  margin-bottom: 2.42718em; }
+
+small {
+  font-size: 0.618em; }
+
+/* } */
+/* @if $include_forms { */
+/* } */
+/* @if $include_grid { */
+/*
+  You will need to set you own column widths in percents because I have no idea what you're wanting to do.
+  Also I know you were going to include these grid classes in your markup like an asshole, so I made it so you couldn't.
+  Extend them properly.
+  
+  http://css-tricks.com/dont-overthink-it-grids/
+  In the origonal col widths are whack because of the padding not being distributed evenly
+  but its fixed now
+*/
+.container, .products {
+  margin: 0 auto; }
+  .container:after, .products:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.thumbnail-wrapper {
+  float: left;
+  padding: 0 2%; }
+  .grid .thumbnail-wrapper:last-of-type {
+    padding-right: 0; }
+  .grid .thumbnail-wrapper:first-of-type {
+    padding-left: 0; }
+
+/* } */
+/* @if $include_tables { */
+/*
+ * Tables suck. Make them suck less by making them act like lists.
+ * Not strickly mobile first, but suck it.
+ *
+ * Also uses nifty content: attr(title); for th lables on small screens
+ */
+/* } */
+/* @if $include_sticky_footer { */
+/*
+ * Table based sticky footer for dynamic footer magic-ness.
+ * Add the sticky-footer class to opt in.
+ */
+/* } */
+/*
+ * Shit like .make-text-centered-on-small-screens and .hide-on-whatever-other-sized-screen
+ */
+.container {
+  width: 98%;
+  padding: 1.5em 0; }
+  @media (min-width: 37.5em) {
+    .container {
+      width: 95%; } }
+  @media (min-width: 60em) {
+    .container {
+      width: 90%; } }
+  @media (min-width: 93.75em) {
+    .container {
+      width: 80%; } }
+
+.thumbnail-wrapper {
+  width: 25%; }
+
+.image-wrapper {
+  display: block;
+  margin-bottom: 1.5em;
+  border: #999 solid 1px;
+  background-color: #eee; }
+
+/*# sourceMappingURL=style.css.map */

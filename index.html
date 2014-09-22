@@ -4,86 +4,15 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>Uniform Thumbnails Demo</title>
-  
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-     -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-    }
-    body {
-      font-size: 100%;
-      line-height: 1;
-    }
-    .container {
-      overflow: auto;
-      width: 80%;
-      margin: auto;
-      padding-top: 1.5em;
-      padding-bottom: 3em;
-    }
-    .products {
-      overflow: auto;
-      width: 100%;
-      margin-left: -15px;
-      margin-right: -15px;
-    }
-    .thumbnail-wrapper {
-      display: block;
-      float: left;
-      width: 25%;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    .thumbnail {
-      display: block;
-      padding: 10px;
-      border: #eee solid 1px;
-    }
-    .image-wrapper {
-      display: block;
-      margin-bottom: 1.5em;
-      border: red solid 1px;
-    }
-    img {
-      max-width: 100%;
-      margin: auto;
-    }
-    h1 {
-      margin: 1.5em 0 0.5em;
-    }
-  </style>
-  
+
+  <link rel="stylesheet" href="style.css">
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/dist/jquery.uniform_thumbnails.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Example 1</h1>
-    <section class="products">
-      <div class="thumbnail-wrapper">
-        <div class="thumbnail">
-          <a class="image-wrapper" href="#">
-            <img src="http://placehold.it/500x700">
-          </a>
-          <div class="caption">
-            <h3>Product Title</h3>
-          </div>
-        </div>
-      </div>
-    
-      <div class="thumbnail-wrapper">
-        <div class="thumbnail">
-          <a class="image-wrapper" href="#">
-            <img src="http://placehold.it/200x300">
-          </a>
-          <div class="caption">
-            <h3>Product Title</h3>
-          </div>
-        </div>
-      </div>
+    <h1>Cropped</h1>
+    <h3>Square</h3>
+    <section class="products cropped-square">
     
       <div class="thumbnail-wrapper">
         <div class="thumbnail">
@@ -91,7 +20,18 @@
             <img src="http://placehold.it/700x500">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/500x700">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -102,12 +42,270 @@
             <img src="http://placehold.it/300x200">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/200x300">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
     </section>
     
+    <h3>Portrait</h3>
+    <section class="products cropped-portrait">
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/700x500">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/500x700">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/300x200">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/200x300">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <h3>Landscape</h3>
+    <section class="products cropped-landscape">
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/700x500">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/500x700">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/300x200">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/200x300">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <hr>
+    
+    <h1>Scaled</h1>
+    
+    <h3>Square</h3>
+    <section class="products scaled-square">
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/700x500">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/500x700">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/300x200">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/200x300">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <h3>Portrait</h3>
+    <section class="products scaled-portrait">
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/700x500">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/500x700">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/300x200">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/200x300">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <h3>Landscape</h3>
+    <section class="products scaled-landscape">
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/700x500">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/500x700">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/300x200">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail">
+          <a class="image-wrapper" href="#">
+            <img src="http://placehold.it/200x300">
+          </a>
+          <div class="caption">
+            <h4>Product Title</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!--
+
     <h1>Example 2</h1>
     <section class="products">
     
@@ -117,7 +315,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/Reece_Hudson_Siren_Mini_Bag_Black_1_grande.jpg?v=1398329576">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -128,7 +326,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/Reece_Hudson_Bowery_Pouchette_Black_1_grande.jpg?v=1398313304">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -139,7 +337,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/Reece_Hudson_Siren_Backpack_Black_1_grande.jpg?v=1398329293">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -154,7 +352,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/1621706_10152080691605819_1625700985_n_grande.jpg?v=1407834248">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -165,7 +363,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/pull-brakpan-1_grande.jpg?v=1407832854">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -176,7 +374,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/jupe-saint_grande.jpg?v=1407833883">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -191,7 +389,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/XmR3SKPVkJT_9X8XD67gXRoXM5XZTjMBR2S6GPkclbo_grande.jpg?v=1408155665">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -202,7 +400,7 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/ZANZAN_AVIDA_DOLLARS_7_grande.jpg?v=1399009279">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
@@ -213,17 +411,20 @@
             <img src="http://cdn.shopify.com/s/files/1/0402/5225/products/ZANZAN_AVIDA_DOLLARS_1_grande.jpg?v=1399010302">
           </a>
           <div class="caption">
-            <h3>Product Title</h3>
+            <h4>Product Title</h4>
           </div>
         </div>
       </div>
     </section>
+-->
   </div>
   
+  
+  <script src="/dist/jquery.uniform_thumbnails.min.js"></script>
   <script>  
     $('.image-wrapper').uniform_thumbnails({
       ratio: '2:3',
-      fit: 'scale',
+      //fit: 'scale',
       //align: 'bottom'
     }).on('ut_complete', function(){
       console.log('All done!');

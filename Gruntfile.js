@@ -47,6 +47,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    sass: {
+      dist: {
+        files: {
+          'style.css': 'style.scss'
+        }
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -59,6 +66,10 @@ module.exports = function(grunt) {
       uglify: {
         files: 'src/*.js',
         tasks: ['uglify']
+      },
+      sass: {
+        files: '*.scss',
+        tasks: ['sass']
       }
     }
   });
@@ -66,8 +77,9 @@ module.exports = function(grunt) {
   // Load task plugins
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'sass']);
 };

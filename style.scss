@@ -1,0 +1,31 @@
+@import "bower_components/inside/src/inside.scss";
+
+.container {
+  @extend %grid;
+  width: 98%;
+  padding: $gutter_horizontal 0;
+  @media (min-width: $breakpoint-sm) {
+    width: 95%;
+  }
+  @media (min-width: $breakpoint-md) {
+    width: 90%;
+  }
+  @media (min-width: $breakpoint-lg) {
+    width: 80%;
+  }
+}
+
+.products {
+  @extend %grid;
+}
+.thumbnail-wrapper {
+  @extend %grid-col;
+  width: 25%;
+}
+
+.image-wrapper {
+  display: block;
+  margin-bottom: $gutter_horizontal;
+  border: #999 solid 1px;
+  background-color: #eee;
+}
