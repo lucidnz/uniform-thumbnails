@@ -117,29 +117,61 @@
   
   UniformThumbsFitter.prototype._cropImage = function(){
     if (this.$image.width() > this.$image.height()) {
-      this._fitHorizontal();
+      this._cropHorizontal();
     } else {
-      this._fitVertical();
+      this._cropVertical();
     }
   };
   
   UniformThumbsFitter.prototype._scaleImage = function(){
     if (this.$image.width() > this.$image.height()) {
-      this._fitVertical();
+      this._scaleVertical();
     } else {
-      this._fitHorizontal();
+      this._scaleHorizontal();
     }
   };
   
-  UniformThumbsFitter.prototype._fitHorizontal = function(){
+  UniformThumbsFitter.prototype._cropHorizontal = function() {
     if (this._getNaturalHeight(this.$image) >= this.$wrapper.height()) {
       this.$image.height(this.$wrapper.height());
+      
+      if(this.$wrapper.width() > this.$image.width()){
+        this.$image.width(this.$wrapper.width());
+        this.$image.height('auto');
+      }
     }
   };
   
-  UniformThumbsFitter.prototype._fitVertical = function(){
+  UniformThumbsFitter.prototype._cropVertical = function() {
     if (this._getNaturalWidth(this.$image) >= this.$wrapper.width()) {
       this.$image.width(this.$wrapper.width());
+      
+      if(this.$wrapper.height() > this.$image.height()){
+        this.$image.height(this.$wrapper.height());
+        this.$image.width('auto');
+      }
+    }
+  };
+  
+  UniformThumbsFitter.prototype._scaleHorizontal = function() {
+    if (this._getNaturalHeight(this.$image) >= this.$wrapper.height()) {
+      this.$image.height(this.$wrapper.height());
+      
+      if(this.$image.width() >= this.$wrapper.width()){
+        this.$image.width(this.$wrapper.width());
+        this.$image.height('auto');
+      }
+    }
+  };
+  
+  UniformThumbsFitter.prototype._scaleVertical = function() {
+    if (this._getNaturalWidth(this.$image) >= this.$wrapper.width()) {
+      this.$image.width(this.$wrapper.width());
+      
+      if(this.$image.height() > this.$wrapper.height()){
+        this.$image.height(this.$wrapper.height());
+        this.$image.width('auto');
+      }
     }
   };
   

@@ -422,12 +422,28 @@
   
   <script src="/dist/jquery.uniform_thumbnails.min.js"></script>
   <script>  
-    $('.image-wrapper').uniform_thumbnails({
+    $('.cropped-square .image-wrapper').uniform_thumbnails();
+    
+    $('.cropped-portrait .image-wrapper').uniform_thumbnails({
+      ratio: '2:3'
+    });
+    
+    $('.cropped-landscape .image-wrapper').uniform_thumbnails({
+      ratio: '3:2'
+    });
+    
+    $('.scaled-square .image-wrapper').uniform_thumbnails({
+      fit: 'scale'
+    });
+    
+    $('.scaled-portrait .image-wrapper').uniform_thumbnails({
       ratio: '2:3',
-      //fit: 'scale',
-      //align: 'bottom'
-    }).on('ut_complete', function(){
-      console.log('All done!');
+      fit: 'scale'
+    });
+    
+    $('.scaled-landscape .image-wrapper').uniform_thumbnails({
+      ratio: '3:2',
+      fit: 'scale'
     });
   </script>
 </body>

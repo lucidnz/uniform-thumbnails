@@ -167,9 +167,12 @@ small {
   In the origonal col widths are whack because of the padding not being distributed evenly
   but its fixed now
 */
-.container, .products {
+.container {
   margin: 0 auto; }
-  .container:after, .products:after {
+
+.products {
+  margin: -2%; }
+  .products:after {
     content: "";
     display: table;
     clear: both; }
@@ -177,10 +180,6 @@ small {
 .thumbnail-wrapper {
   float: left;
   padding: 0 2%; }
-  .grid .thumbnail-wrapper:last-of-type {
-    padding-right: 0; }
-  .grid .thumbnail-wrapper:first-of-type {
-    padding-left: 0; }
 
 /* } */
 /* @if $include_tables { */
@@ -221,5 +220,9 @@ small {
   margin-bottom: 1.5em;
   border: #999 solid 1px;
   background-color: #eee; }
+  .correct .image-wrapper {
+    border-color: green; }
+  .incorrect .image-wrapper {
+    border-color: red; }
 
 /*# sourceMappingURL=style.css.map */

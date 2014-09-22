@@ -1,7 +1,7 @@
 @import "bower_components/inside/src/inside.scss";
 
 .container {
-  @extend %grid;
+  @extend %container;
   width: 98%;
   padding: $gutter_horizontal 0;
   @media (min-width: $breakpoint-sm) {
@@ -28,4 +28,11 @@
   margin-bottom: $gutter_horizontal;
   border: #999 solid 1px;
   background-color: #eee;
+  
+  .correct & {
+    border-color: green;
+  }
+  .incorrect & {
+    border-color: red;
+  }
 }
