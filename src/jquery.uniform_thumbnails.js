@@ -103,6 +103,7 @@
   };
   
   UniformThumbsFitter.prototype.setImageFit = function(){
+    this._resetImageCSS();
     switch (this.settings.fit) {
       case 'crop':
         this._cropImage();
@@ -111,7 +112,6 @@
         this._scaleImage();
         break;
     }
-    this._resetImageCSS();
     this._alignImage();
   };
   
@@ -195,6 +195,7 @@
   
   UniformThumbsFitter.prototype._resetImageCSS = function(){
     this.$image.css({
+      width: 'auto',
       maxWidth: 'none'
     });
   };
