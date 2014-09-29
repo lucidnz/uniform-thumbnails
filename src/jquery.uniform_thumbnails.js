@@ -116,63 +116,39 @@
   };
   
   UniformThumbsFitter.prototype._cropImage = function(){
-    if (this.$image.width() > this.$image.height()) {
-      this._cropHorizontal();
+    if(this._imageRatio() > this._wrapperRatio()){
+      this._fitHorizontal();
     } else {
-      this._cropVertical();
+      this._fitVertical();
     }
   };
   
   UniformThumbsFitter.prototype._scaleImage = function(){
-    if (this.$image.width() > this.$image.height()) {
-      this._scaleVertical();
+    if(this._imageRatio() > this._wrapperRatio()){
+      this._fitVertical();
     } else {
-      this._scaleHorizontal();
+      this._fitHorizontal();
     }
   };
   
-  UniformThumbsFitter.prototype._cropHorizontal = function() {
+  UniformThumbsFitter.prototype._fitHorizontal = function() {
     if (this._getNaturalHeight(this.$image) >= this.$wrapper.height()) {
       this.$image.height(this.$wrapper.height());
-      
-      if(this.$wrapper.width() > this.$image.width()){
-        this.$image.width(this.$wrapper.width());
-        this.$image.height('auto');
-      }
     }
   };
   
-  UniformThumbsFitter.prototype._cropVertical = function() {
+  UniformThumbsFitter.prototype._fitVertical = function() {
     if (this._getNaturalWidth(this.$image) >= this.$wrapper.width()) {
       this.$image.width(this.$wrapper.width());
-      
-      if(this.$wrapper.height() > this.$image.height()){
-        this.$image.height(this.$wrapper.height());
-        this.$image.width('auto');
-      }
     }
   };
-  
-  UniformThumbsFitter.prototype._scaleHorizontal = function() {
-    if (this._getNaturalHeight(this.$image) >= this.$wrapper.height()) {
-      this.$image.height(this.$wrapper.height());
-      
-      if(this.$image.width() >= this.$wrapper.width()){
-        this.$image.width(this.$wrapper.width());
-        this.$image.height('auto');
-      }
-    }
+
+  UniformThumbsFitter.prototype._imageRatio = function(){
+    return this._getNaturalWidth(this.$image) / this._getNaturalHeight(this.$image);
   };
-  
-  UniformThumbsFitter.prototype._scaleVertical = function() {
-    if (this._getNaturalWidth(this.$image) >= this.$wrapper.width()) {
-      this.$image.width(this.$wrapper.width());
-      
-      if(this.$image.height() > this.$wrapper.height()){
-        this.$image.height(this.$wrapper.height());
-        this.$image.width('auto');
-      }
-    }
+
+  UniformThumbsFitter.prototype._wrapperRatio = function(){
+    return this.$wrapper.width() / this.$wrapper.height();
   };
   
   UniformThumbsFitter.prototype._alignImage = function(){
