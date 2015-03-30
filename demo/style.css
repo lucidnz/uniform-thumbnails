@@ -23,6 +23,9 @@
   Colours:
 */
 /*
+  Forms & Buttons:
+*/
+/*
   Inspired by some stuff this guy said:
   http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation
   but extended to include a few more things
@@ -85,7 +88,11 @@ a {
   color: inherit;
   transition: .3s; }
   p a:hover {
+    color: #00B8E3;
     text-decoration: underline; }
+
+input, textarea, select {
+  font-family: sans-serif; }
 
 img {
   max-width: 100%;
@@ -95,9 +102,8 @@ img {
 hr {
   margin: 0.75em 0;
   border: none;
-  border-bottom: solid 1px #444; }
+  border-bottom: solid 1px #ddd; }
 
-/* @if $include_type { */
 /*
   Read the part about line length:
   http://trentwalton.com/2012/06/19/fluid-type/
@@ -112,6 +118,11 @@ body {
   @media (min-width: 93.75em) {
     body {
       font-size: 1.4em; } }
+
+::selection {
+  color: #000;
+  background: rgba(0, 184, 227, 0.6);
+  text-shadow: none; }
 
 p,
 blockquote,
@@ -154,10 +165,166 @@ h6 {
 small {
   font-size: 0.618em; }
 
-/* } */
-/* @if $include_forms { */
-/* } */
-/* @if $include_grid { */
+/*
+  Forms:
+   Make them not look shitty
+*/
+fieldset {
+  border: none; }
+
+legend {
+  width: 100%;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.75em;
+  border-bottom: solid 1px #ddd; }
+
+label {
+  display: inline-block; }
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel],
+input[type=text],
+input[type=number],
+input[type=search],
+input[type=time],
+input[type=week],
+input[type=month],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=checkbox],
+input[type=radio],
+textarea,
+select {
+  color: rgba(68, 68, 68, 0.8);
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  outline: none;
+  transition: .3s; }
+  input[type=text]:focus,
+  input[type=email]:focus,
+  input[type=password]:focus,
+  input[type=url]:focus,
+  input[type=tel]:focus,
+  input[type=text]:focus,
+  input[type=number]:focus,
+  input[type=search]:focus,
+  input[type=time]:focus,
+  input[type=week]:focus,
+  input[type=month]:focus,
+  input[type=date]:focus,
+  input[type=datetime]:focus,
+  input[type=datetime-local]:focus,
+  input[type=checkbox]:focus,
+  input[type=radio]:focus,
+  textarea:focus,
+  select:focus {
+    color: #444;
+    border-color: rgba(0, 184, 227, 0.6);
+    box-shadow: 0 0 6px rgba(0, 184, 227, 0.6); }
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel],
+input[type=text],
+input[type=number],
+input[type=search],
+input[type=time],
+input[type=week],
+input[type=month],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+textarea,
+select {
+  font-size: 0.9em;
+  line-height: 1.66667;
+  margin-bottom: 1.66667em;
+  font-weight: 100;
+  display: block;
+  padding: 0.25em 0.5em; }
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel],
+input[type=text],
+input[type=number],
+input[type=range],
+textarea {
+  width: 100%; }
+
+input[type=file],
+input[type=range],
+input[type=color] {
+  font-size: 0.9em;
+  line-height: 1.66667;
+  margin-bottom: 1.66667em; }
+
+input[type=file] {
+  line-height: 1em; }
+
+input[type=search] {
+  display: inline-block;
+  border-radius: 1.5em; }
+
+input[type=checkbox],
+input[type=radio] {
+  vertical-align: middle; }
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  resize: vertical; }
+
+select {
+  display: inline-block; }
+
+/*
+  Buttons:
+*/
+input[type=button],
+input[type=reset],
+input[type=submit],
+button {
+  font-size: 0.9em;
+  line-height: 1.66667;
+  margin-bottom: 1.66667em;
+  display: inline-block;
+  padding: 0.5em 1em;
+  color: rgba(68, 68, 68, 0.8);
+  background-color: white;
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  outline: none;
+  transition: .3s; }
+  input[type=button]:hover,
+  input[type=reset]:hover,
+  input[type=submit]:hover,
+  button:hover, input[type=button]:active,
+  input[type=reset]:active,
+  input[type=submit]:active,
+  button:active {
+    color: #444;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #f7f7f7;
+    border-color: #c4c4c4; }
+  input[type=button]:focus,
+  input[type=reset]:focus,
+  input[type=submit]:focus,
+  button:focus {
+    color: #444;
+    background-color: #f7f7f7;
+    border-color: rgba(0, 184, 227, 0.6);
+    box-shadow: 0 0 6px rgba(0, 184, 227, 0.6); }
+
 /*
   You will need to set you own column widths in percents because I have no idea what you're wanting to do.
   Also I know you were going to include these grid classes in your markup like an asshole, so I made it so you couldn't.
@@ -171,7 +338,7 @@ small {
   margin: 0 auto; }
 
 .products {
-  margin: -2%; }
+  margin: 0 -2%; }
   .products:after {
     content: "";
     display: table;
@@ -181,21 +348,16 @@ small {
   float: left;
   padding: 0 2%; }
 
-/* } */
-/* @if $include_tables { */
 /*
  * Tables suck. Make them suck less by making them act like lists.
  * Not strickly mobile first, but suck it.
  *
  * Also uses nifty content: attr(title); for th lables on small screens
  */
-/* } */
-/* @if $include_sticky_footer { */
 /*
  * Table based sticky footer for dynamic footer magic-ness.
  * Add the sticky-footer class to opt in.
  */
-/* } */
 /*
  * Shit like .make-text-centered-on-small-screens and .hide-on-whatever-other-sized-screen
  */
