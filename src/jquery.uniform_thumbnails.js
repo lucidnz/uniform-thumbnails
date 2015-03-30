@@ -36,9 +36,9 @@ var imagesLoaded = require('imagesloaded');
     var timeout;
     $(window).resize(function() {
       if (timeout) {
-        clearTimeout(timeout);
+        clearInterval(timeout);
       }
-      timeout = setTimeout(function() {
+      timeout = setInterval(function() {
         
         if (!self.resizing) {
           self.formater.setImageFormat();
@@ -111,7 +111,10 @@ var imagesLoaded = require('imagesloaded');
     this.$wrapper = $wrapper;
     this.$image = this.$wrapper.find('img');
     this.settings = settings;
+    this.wrapperRatio;
     this.imageRatio;
+    this.imageNaturalWidth;
+    this.imageNaturalHeight;
   };
   
   UniformThumbsFitter.prototype.setImageFit = function(){
@@ -162,7 +165,9 @@ var imagesLoaded = require('imagesloaded');
   };
 
   UniformThumbsFitter.prototype._wrapperRatio = function(){
-    return this.$wrapper.width() / this.$wrapper.height();
+    // cache the wrappers ratio because we don't need to calculate it every time
+    this.wrapperRatio = this.wrapperRatio || this.$wrapper.width() / this.$wrapper.height();
+    return this.wrapperRatio;
   };
   
   UniformThumbsFitter.prototype._alignImage = function(){
@@ -182,19 +187,25 @@ var imagesLoaded = require('imagesloaded');
   };
   
   UniformThumbsFitter.prototype._getNaturalHeight = function($image){
-    if ($image.prop('naturalHeight')) {
-      return $image.prop('naturalHeight');
-    } else {
-      return this._getNaturalSize($image).height;
+    if (!this.imageNaturalHeight) {
+      if ($image.prop('naturalHeight')) {
+        this.imageNaturalHeight = $image.prop('naturalHeight');
+      } else {
+        this.imageNaturalHeight = this._getNaturalSize($image).height;
+      }
     }
+    return this.imageNaturalHeight;
   };
   
   UniformThumbsFitter.prototype._getNaturalWidth = function($image){
-    if ($image.prop('naturalWidth')) {
-      return $image.prop('naturalWidth');
-    } else {
-      return this._getNaturalSize($image).width;
+    if (!this.imageNaturalWidth) {
+      if ($image.prop('naturalWidth')) {
+        this.imageNaturalWidth = $image.prop('naturalWidth');
+      } else {
+        this.imageNaturalWidth = this._getNaturalSize($image).width;
+      }
     }
+    return this.imageNaturalWidth;
   };
   
   UniformThumbsFitter.prototype._getNaturalSize = function($image){
