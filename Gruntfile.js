@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/jquery.uniform_thumbnails.min.js': ['./dist/jquery.uniform_thumbnails.pkgd.js']//['bower_components/imagesloaded/imagesloaded.pkgd.js', 'src/jquery.uniform_thumbnails.js']
+          'dist/jquery.uniform_thumbnails.min.js': ['./dist/jquery.uniform_thumbnails.pkgd.js']
         }
       }
     },
