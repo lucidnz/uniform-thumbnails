@@ -894,7 +894,7 @@ if ( typeof define === 'function' && define.amd ) {
 }.call(this));
 
 },{}],4:[function(require,module,exports){
-require('imagesloaded');
+var imagesLoaded = require('imagesloaded');
 
 (function($) {
   

@@ -1,4 +1,4 @@
-require('imagesloaded');
+var imagesLoaded = require('imagesloaded');
 
 (function($) {
   
