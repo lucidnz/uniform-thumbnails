@@ -931,7 +931,9 @@ var imagesLoaded = require('imagesloaded');
     // resize images on window resize
     var timeout;
     $(window).resize(function() {
-      if (timeout) clearTimeout(timeout);
+      if (timeout) {
+        clearTimeout(timeout);
+      }
       timeout = setTimeout(function() {
         
         if (!self.resizing) {
@@ -1005,6 +1007,7 @@ var imagesLoaded = require('imagesloaded');
     this.$wrapper = $wrapper;
     this.$image = this.$wrapper.find('img');
     this.settings = settings;
+    this.imageRatio;
   };
   
   UniformThumbsFitter.prototype.setImageFit = function(){
@@ -1049,7 +1052,9 @@ var imagesLoaded = require('imagesloaded');
   };
 
   UniformThumbsFitter.prototype._imageRatio = function(){
-    return this._getNaturalWidth(this.$image) / this._getNaturalHeight(this.$image);
+    // cache the images ratio because we don't need to calculate it every time
+    this.imageRatio = this.imageRatio || this._getNaturalWidth(this.$image) / this._getNaturalHeight(this.$image);
+    return this.imageRatio;
   };
 
   UniformThumbsFitter.prototype._wrapperRatio = function(){
@@ -1100,7 +1105,9 @@ var imagesLoaded = require('imagesloaded');
   
   UniformThumbsFitter.prototype._resetImageCSS = function(){
     this.$image.css({
-      maxWidth: 'none'
+      maxWidth: 'none',
+      width: 'auto',
+      height: 'auto'
     });
   };
 

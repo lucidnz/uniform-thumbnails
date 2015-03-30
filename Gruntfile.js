@@ -28,6 +28,8 @@ module.exports = function(grunt) {
           jQuery: true,
           imagesLoaded: true,
           setInterval: true,
+          setTimeout: true,
+          clearTimeout: true,
           require: true
         }
       },
