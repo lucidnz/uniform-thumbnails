@@ -197,7 +197,6 @@ var imagesLoaded = require('imagesloaded');
   
   UniformThumbsFitter.prototype._resetImageCSS = function(){
     this.$image.css({
-      width: 'auto',
       maxWidth: 'none'
     });
   };

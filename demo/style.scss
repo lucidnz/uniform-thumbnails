@@ -22,7 +22,10 @@
 }
 .thumbnail-wrapper {
   @extend %grid-col;
-  width: 25%;
+  width: 100%;
+  @media (min-width: 600px) {
+    width: 25%;
+  }
 }
 
 .image-wrapper {

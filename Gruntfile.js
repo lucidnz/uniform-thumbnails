@@ -71,7 +71,7 @@ module.exports = function(grunt) {
       },
       uglify: {
         files: 'src/*.js',
-        tasks: ['uglify']
+        tasks: ['browserify','uglify']
       },
       sass: {
         files: 'demo/*.scss',
