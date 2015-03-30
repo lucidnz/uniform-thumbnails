@@ -27,7 +27,8 @@ module.exports = function(grunt) {
           $: true,
           jQuery: true,
           imagesLoaded: true,
-          setInterval: true
+          setInterval: true,
+          require: true
         }
       },
       gruntfile: {
@@ -37,13 +38,25 @@ module.exports = function(grunt) {
         src: ['src/*.js']
       }
     },
+    requirejs: {
+      pkgd: {
+        options: {
+          baseUrl: 'bower_components',
+          include: [
+            '../src/jquery.uniform_thumbnails.js'
+          ],
+          out: './dist/jquery.uniform_thumbnails.pkgd.js',
+          optimize: 'none'
+        }
+      }
+    },
     uglify: {
       options: {
         mangle: false
       },
       dist: {
         files: {
-          'dist/jquery.uniform_thumbnails.min.js': ['bower_components/imagesloaded/imagesloaded.pkgd.js', 'src/jquery.uniform_thumbnails.js']
+          'dist/jquery.uniform_thumbnails.min.js': ['./dist/jquery.uniform_thumbnails.pkgd.js']//['bower_components/imagesloaded/imagesloaded.pkgd.js', 'src/jquery.uniform_thumbnails.js']
         }
       }
     },
@@ -79,7 +92,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-requirejs');
   
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'uglify', 'sass']);
+  grunt.registerTask('default', ['jshint', 'requirejs', 'uglify', 'sass']);
 };

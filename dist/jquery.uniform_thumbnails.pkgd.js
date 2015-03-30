@@ -241,3 +241,5 @@
   };
 
 }(jQuery));
+define("../src/jquery.uniform_thumbnails.js", function(){});
+
