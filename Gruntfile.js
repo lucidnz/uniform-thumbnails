@@ -38,18 +38,11 @@ module.exports = function(grunt) {
         src: ['src/*.js']
       }
     },
-    requirejs: {
-      pkgd: {
-        options: {
-          baseUrl: 'bower_components',
-          include: [
-            '../src/jquery.uniform_thumbnails.js'
-          ],
-          out: './dist/jquery.uniform_thumbnails.pkgd.js',
-          optimize: 'none'
-        }
-      }
+    
+    browserify: {
+      './dist/jquery.uniform_thumbnails.pkgd.js': ['./src/jquery.uniform_thumbnails.js']
     },
+    
     uglify: {
       options: {
         mangle: false
@@ -92,8 +85,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-requirejs');
+  grunt.loadNpmTasks('grunt-browserify');
   
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'requirejs', 'uglify', 'sass']);
+  grunt.registerTask('default', ['jshint', 'browserify', 'uglify', 'sass']);
 };

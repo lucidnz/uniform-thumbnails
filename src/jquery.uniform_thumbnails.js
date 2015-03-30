@@ -1,8 +1,6 @@
-(function($) {
+require('imagesloaded');
 
-  if ( typeof exports === 'object' ) {
-    require('imagesloaded');
-  }
+(function($) {
   
   /***
    * Main

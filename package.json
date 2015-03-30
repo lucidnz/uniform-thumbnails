@@ -4,11 +4,11 @@
   "main": "./dist/jquery.uniform_thumbnails.pkgd.js",
   "devDependencies": {
     "grunt": "~0.4.4",
+    "grunt-browserify": "^3.6.0",
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-contrib-sass": "~0.8.1",
     "grunt-contrib-uglify": "~0.3.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-requirejs": "^0.4.2"
+    "grunt-contrib-watch": "~0.5.3"
   },
   "dependencies": {
     "imagesloaded": "^3.1.8"
