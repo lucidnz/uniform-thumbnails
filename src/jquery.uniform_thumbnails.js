@@ -10,6 +10,8 @@ var imagesLoaded = require('imagesloaded');
     this.$ele = $ele;
     this.settings = settings;
     
+    this.resizing = false;
+    
     this.formater = new UniformThumbsFormater(this.$ele, this.settings);
     this.fitter = new UniformThumbsFitter(this.$ele, this.settings);
     this.imageLoaded = imagesLoaded(this.$ele);
@@ -22,23 +24,28 @@ var imagesLoaded = require('imagesloaded');
     var self = this;
     
     this.imageLoaded.on('done', function(){
+      self.resizing = true;
       self.formater.setImageFormat();
       self.fitter.setImageFit();
       self.showImages();
       self.$ele.trigger('ut_imageLoaded');
+      self.resizing = false;
     });
     
-    var didResize = false;
+    // resize images on window resize
+    var timeout;
     $(window).resize(function() {
-      didResize = true;
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(function() {
+        
+        if (!self.resizing) {
+          self.formater.setImageFormat();
+          self.fitter.setImageFit();
+          self.resizing = false;
+        }
+        
+      }, 500);
     });
-    setInterval(function() {  
-      if(didResize) {
-        didResize = false;
-        self.formater.setImageFormat();
-        self.fitter.setImageFit();
-      }
-    }, 250);
   };
   
   UniformThumbs.prototype.hideImages = function(){
