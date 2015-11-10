@@ -1039,8 +1039,8 @@ var imagesLoaded = require('imagesloaded');
   };
   
   UniformThumbsFitter.prototype._fitHorizontal = function() {
-    if (this._getNaturalHeight(this.$image) >= this.$wrapper.height()) {
-      this.$image.height(this.$wrapper.height());
+    if (this._getNaturalHeight(this.$image) >= this.wrapperHeight) {
+      this.$image.height(this.wrapperHeight);
     }
   };
   
@@ -1069,10 +1069,10 @@ var imagesLoaded = require('imagesloaded');
       case 'top':
         break;
       case 'middle':
-        style.marginTop = (this.$wrapper.height() - this.$image.height()) / 2;
+        style.marginTop = (this.wrapperHeight - this.$image.height()) / 2;
         break;
       case 'bottom':
-        style.marginTop = this.$wrapper.height() - this.$image.height();
+        style.marginTop = this.wrapperHeight - this.$image.height();
         break;
     }
     this.$image.css(style);
