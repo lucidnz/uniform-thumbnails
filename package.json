@@ -1,6 +1,6 @@
 {
   "name": "uniformThumbnails",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./src/jquery.uniform_thumbnails.js",
   "devDependencies": {
     "grunt": "~0.4.4",
