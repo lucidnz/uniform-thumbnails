@@ -894,6 +894,8 @@ if ( typeof define === 'function' && define.amd ) {
 }.call(this));
 
 },{}],4:[function(require,module,exports){
+/*jshint -W030 */
+
 var imagesLoaded = require('imagesloaded');
 
 (function($) {
@@ -918,8 +920,8 @@ var imagesLoaded = require('imagesloaded');
     var self = this;
     
     this.imageLoaded.on('done', function(){
-      self.formater.setImageFormat();
-      self.fitter.setImageFit();
+      var wrapperHeight = self.formater.setImageFormat();
+      self.fitter.setImageFit(wrapperHeight);
       self.showImages();
       self.$ele.trigger('ut_imageLoaded');
     });
@@ -931,8 +933,8 @@ var imagesLoaded = require('imagesloaded');
         clearTimeout(timeout);
       }
       timeout = setTimeout(function() {
-        self.formater.setImageFormat();
-        self.fitter.setImageFit();
+        var wrapperHeight = self.formater.setImageFormat();
+        self.fitter.setImageFit(wrapperHeight);
       }, 100);
     });
   };
@@ -962,6 +964,7 @@ var imagesLoaded = require('imagesloaded');
     var widthRatio = this.$wrapper.width() / this.ratio.width;
     var heightRatio = widthRatio * this.ratio.height;
     this.$wrapper.height(heightRatio);
+    return heightRatio;
   };
   
   UniformThumbsFormater.prototype.getRatio = function(){
@@ -999,12 +1002,14 @@ var imagesLoaded = require('imagesloaded');
     this.$image = this.$wrapper.find('img');
     this.settings = settings;
     this.wrapperRatio;
+    this.wrapperHeight;
     this.imageRatio;
     this.imageNaturalWidth;
     this.imageNaturalHeight;
   };
   
-  UniformThumbsFitter.prototype.setImageFit = function(){
+  UniformThumbsFitter.prototype.setImageFit = function(wrapperHeight){
+    this.wrapperHeight = wrapperHeight;
     this._resetImageCSS();
     switch (this.settings.fit) {
       case 'crop':
@@ -1053,7 +1058,7 @@ var imagesLoaded = require('imagesloaded');
 
   UniformThumbsFitter.prototype._wrapperRatio = function(){
     // cache the wrappers ratio because we don't need to calculate it every time
-    this.wrapperRatio = this.wrapperRatio || this.$wrapper.width() / this.$wrapper.height();
+    this.wrapperRatio = this.wrapperRatio || this.$wrapper.width() / this.wrapperHeight;
     return this.wrapperRatio;
   };
   
