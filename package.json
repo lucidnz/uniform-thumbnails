@@ -1,7 +1,7 @@
 {
   "name": "uniformThumbnails",
-  "version": "0.0.2",
-  "main": "./src/jquery.uniform_thumbnails.js",
+  "version": "0.0.3",
+  "main": "./dist/jquery.uniform_thumbnails.min.js",
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-browserify": "^3.6.0",
